@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Cycler</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe id="websiteFrame" src=""></iframe>
+
+    <script>
+      var websites = ["https://google.com", "https://youtube.com"]; // Replace with your desired URLs
+      var currentIndex = 0;
+
+      function cycleWebsites() {
+        document.getElementById("websiteFrame").src = websites[currentIndex];
+        currentIndex = (currentIndex + 1) % websites.length;
+      }
+
+      // Set the cycle interval (e.g., 10000 milliseconds = 10 seconds)
+      setInterval(cycleWebsites, 10000);
+
+      // Start the cycle immediately when the page loads
+      window.onload = cycleWebsites;
+    </script>
+  </body>
+</html>
